@@ -1,0 +1,84 @@
+@use "sass:map";
+
+$themes: (
+  "orange": (
+    "primary": #89b0d6,
+    "secondary": #63bab1,
+    "accent": #b05abf,
+
+    "dark": #453d3d,
+    "dark-page": #211e1e,
+
+    "positive": #21ba45,
+    "negative": #f02e44,
+    "info": #ebeff0,
+    "warning": #edb313,
+  ),
+  "dark": (
+    "primary": #29333d,
+    "secondary": #29333d,
+    "accent": #b05abf,
+
+    "dark": #453d3d,
+    "dark-page": #211e1e,
+
+    "positive": #21ba45,
+    "negative": #f02e44,
+    "info": #ebeff0,
+    "warning": #edb313,
+  ),
+  "blue": (
+    "primary": rgb(40, 135, 237),
+    "secondary": rgb(18, 132, 255),
+    "accent": #b05abf,
+
+    "dark": #453d3d,
+    "dark-page": #211e1e,
+
+    "positive": #21ba45,
+    "negative": #f02e44,
+    "info": #ebeff0,
+    "warning": #edb313,
+  ),
+  "red": (
+    "primary": #e01d1d,
+    "secondary": #f24b4b,
+    "accent": #b05abf,
+
+    "dark": #453d3d,
+    "dark-page": #211e1e,
+
+    "positive": #21ba45,
+    "negative": #f02e44,
+    "info": #ebeff0,
+    "warning": #edb313,
+  ),
+  "green": (
+    "primary": #24ab15,
+    "secondary": #2bb35a,
+    "accent": #b05abf,
+
+    "dark": #453d3d,
+    "dark-page": #211e1e,
+
+    "positive": #21ba45,
+    "negative": #f02e44,
+    "info": #ebeff0,
+    "warning": #edb313,
+  ),
+);
+@each $theme, $colors in $themes {
+  [data-theme="#{$theme}"] {
+    @each $name, $color in $colors {
+      .bg-#{$name} {
+        background-color: $color !important;
+      }
+      .text-#{$name} {
+        color: $color !important;
+      }
+    }
+    .q-select__focus-target {
+      background-color: map.get($colors, "primary") !important;
+    }
+  }
+}
